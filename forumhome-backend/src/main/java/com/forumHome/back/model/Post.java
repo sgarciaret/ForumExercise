@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -12,23 +14,30 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-	
-	@OneToMany
-	private int threadId;
-	
-	private String date;
+	private String title;
 	private String body;
+	private String category;
+	private String imageString;
+	private boolean visibility;
+	
+	@ManyToOne
+    @JoinColumn(name="thread_id")
+	private Thread thread;
 	
 	public Post() {
 		super();
 	}
 
-	public Post(int id, int threadId, String date, String body) {
+	public Post(int id, Thread threadId, String title, String body, String category, String imageString,
+			boolean visibility) {
 		super();
 		this.id = id;
-		this.threadId = threadId;
-		this.date = date;
+		this.thread = threadId;
+		this.title = title;
 		this.body = body;
+		this.category = category;
+		this.imageString = imageString;
+		this.visibility = visibility;
 	}
 
 	public int getId() {
@@ -39,20 +48,20 @@ public class Post {
 		this.id = id;
 	}
 
-	public int getThreadId() {
-		return threadId;
+	public Thread getThreadId() {
+		return thread;
 	}
 
-	public void setThreadId(int threadId) {
-		this.threadId = threadId;
+	public void setThreadId(Thread threadId) {
+		this.thread = threadId;
 	}
 
-	public String getDate() {
-		return date;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getBody() {
@@ -63,8 +72,33 @@ public class Post {
 		this.body = body;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getImageString() {
+		return imageString;
+	}
+
+	public void setImageString(String imageString) {
+		this.imageString = imageString;
+	}
+
+	public boolean isVisibility() {
+		return visibility;
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
+
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", threadId=" + threadId + ", date=" + date + ", body=" + body + "]";
+		return "Post [id=" + id + ", threadId=" + thread + ", title=" + title + ", body=" + body + ", category="
+				+ category + ", imageString=" + imageString + ", visibility=" + visibility + "]";
 	}
 }
