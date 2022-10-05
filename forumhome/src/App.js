@@ -1,5 +1,6 @@
 import Login from './components/Login';
 import React, { useEffect, useState } from "react";
+import NewUser from './components/NewUser';
 
 function App() {
   const styleBar = {
@@ -24,6 +25,10 @@ function App() {
 
             <div>
                <Login />
+            </div>
+
+            <div>
+               <NewUser />
             </div>
 
             <div style={styleFooter}>
