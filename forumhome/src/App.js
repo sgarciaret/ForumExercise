@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewUser from './components/NewUser';
 import Login from './components/Login';
+import ForumHome from "./components/ForumHome";
 
 function App() {
   const styleBar = {
@@ -20,16 +21,18 @@ function App() {
 };
   return (
     <BrowserRouter className="App">
-      <div style={styleBar}></div>
+      <div style={styleBar}>
+        <h1>Forum</h1>
+      </div>
       <Routes>
 
         <Route index element={<Login />} />
         <Route path="signup" element={<NewUser />} />
-
+        <Route path="home" element={<ForumHome />} />
       </Routes>
-      <div style={styleFooter}>
+      {/* <div style={styleFooter}>
                
-            </div>
+            </div> */}
     </BrowserRouter>
   );
 }
