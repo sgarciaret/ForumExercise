@@ -11,14 +11,13 @@ function ForumHome() {
 
   return (
     <>
-      <div class="logoutbtn">
+      <div className="logoutbtn">
         <Link to="/">
-          <button class="btn btn-secondary btn-sm me-md-2">Log out</button>
+          <button className="btn btn-secondary btn-sm me-md-2">Log out</button>
         </Link>
       </div>
       <div
-        className="border border-gray border-4 rounded-3 p-5 mt-5"
-        class="threads"
+        className="border border-gray border-4 rounded-3 p-5 mt-5 threads"
       >
         <h2>Threads</h2>
         <div

@@ -1,5 +1,6 @@
 package com.forumHome.back.controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,24 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 
-	@PostMapping("/add")
-	public String add(@RequestBody User user) {
-		userService.saveUser(user);
-		return "New user is added";
+	@PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
+	public User add(@RequestBody User user) {
+		List<User> usersList = userRepo.findAll();
+		String exist = "No existe";
+		
+		for (User u : usersList) {
+			if (u.getUserName().equals(user.getUserName())) {
+				exist = "Existe";
+			}
+		}
+		
+		if (exist.equals("No existe")) {
+			userService.saveUser(user);
+			return user;
+		} else {
+			User user2 = new User();
+			return user2;
+		}
 	}
 
 	@GetMapping("/getAll")
@@ -41,5 +56,20 @@ public class UserController {
 		model.addAttribute("listUsers", listUsers);
 
 		return "users";
+	}
+	
+	@PostMapping("/login")
+	public User login (String userName, String password) {
+		List<User> usersList = userRepo.findAll();
+		User loggedUser = new User();
+		
+		for (User user : usersList) {
+			if (user.getUserName().equals(userName)
+					&& user.getPassword().equals(password)) {
+				loggedUser = user;
+			}
+		}
+		
+		return loggedUser;
 	}
 }

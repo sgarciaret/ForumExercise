@@ -7,16 +7,35 @@ export default function Login() {
   const [userName, setUserName] = useState("");
 
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setUserName("");
-    setPassword("");
-  };
+  const [users, setUsers] = useState([]);
 
   const aStyle = {
     textDecoration: "none"
   }
+
+  /*    
+    EJEMPLO CON REACT
+  useEffect(() => {
+    fetch("http://localhost:8080/user/getAll")
+      .then((res) => res.json())
+      .then((result) => {
+        setUsers(result);
+      });
+  }, []);
+  */
+  const u = { userName, password};
+  const existUser = false;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+        fetch("http://localhost:8080/user/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(u),
+        }).then(() => {
+            window.location = '/home';
+        });
+  };
 
   return (
     <div className="mt-5 w-50">
