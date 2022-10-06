@@ -58,14 +58,14 @@ public class UserController {
 		return "users";
 	}
 	
-	@PostMapping("/login")
-	public User login (String userName, String password) {
+	@PostMapping(path = "/login", consumes = "application/json", produces = "application/json")
+	public User login (@RequestBody User user) {
 		List<User> usersList = userRepo.findAll();
 		User loggedUser = new User();
 		
-		for (User user : usersList) {
-			if (user.getUserName().equals(userName)
-					&& user.getPassword().equals(password)) {
+		for (User u : usersList) {
+			if (u.getUserName().equals(user.getUserName())
+					&& u.getPassword().equals(user.getPassword())) {
 				loggedUser = user;
 			}
 		}

@@ -32,9 +32,20 @@ export default function Login() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(u),
-        }).then(() => {
-            window.location = '/home';
-        });
+        }).then(result => result.json()
+        ).then( 
+           
+            data => { 
+              if (data.userName !== null) {
+                window.location = "/home";
+              } else {
+                alert("Usuario no existe")
+              }
+
+            },
+            error => {
+              console.log(error)
+            })
   };
 
   return (
