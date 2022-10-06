@@ -82,7 +82,13 @@ export default function Login() {
 
         <div className="form-group mt-5 text-center">
           <label>Don't have any acount?&nbsp;</label>
-          <Link to="/signup" style={aStyle}>Register</Link>
+          <p>
+            <Link to="/signup" style={aStyle}>Register</Link>
+          </p>
+          <p>
+            <Link to="/home" style={aStyle}>Enter without register</Link>
+          </p>
+          
           {/* <a href="">   Register</a> */}
         </div>
       </form>
