@@ -14,6 +14,10 @@ export default function Login() {
     setPassword("");
   };
 
+  const aStyle = {
+    textDecoration: "none"
+  }
+
   return (
     <div className="mt-5 w-50">
       <form
@@ -48,7 +52,7 @@ export default function Login() {
 
         <div className="form-group mt-5 text-center">
           <label>Don't have any acount?&nbsp;</label>
-          <Link to="/signup">Register</Link>
+          <Link to="/signup" style={aStyle}>Register</Link>
           {/* <a href="">   Register</a> */}
         </div>
       </form>
