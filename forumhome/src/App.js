@@ -1,6 +1,8 @@
-import Login from './components/Login';
-import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NewUser from './components/NewUser';
+import Login from './components/Login';
 
 function App() {
   const styleBar = {
@@ -10,32 +12,25 @@ function App() {
   };
 
   const styleFooter = {
-      backgroundColor: "#5D2B7E",
-      width: "100%",
-      height: "10vh",
-      position: "fixed",
-      bottom: "0"
-  };
+    backgroundColor: "#5D2B7E",
+    width: "100%",
+    height: "10vh",
+    position: "fixed",
+    bottom: "0"
+};
   return (
-    <div className="App">
-      <div>
-            <div style={styleBar}>
+    <BrowserRouter className="App">
+      <div style={styleBar}></div>
+      <Routes>
+
+        <Route index element={<Login />} />
+        <Route path="signup" element={<NewUser />} />
+
+      </Routes>
+      <div style={styleFooter}>
                
             </div>
-
-            <div>
-               <Login />
-            </div>
-
-            <div>
-               <NewUser />
-            </div>
-
-            <div style={styleFooter}>
-               
-            </div>
-        </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

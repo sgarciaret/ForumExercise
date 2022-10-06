@@ -1,91 +1,62 @@
-import React, { useEffect, useState } from "react";
-import { Container, Paper, Button } from "@material-ui/core";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 
 function NewUser() {
-  const divStyle = {
-    display: "flex",
-  };
-
-  const aStyle = {
-    textDecoration: "none",
-  };
-
-  const [newUserName, setNewUserName] = useState("");
-  const textNewUserName = (e: any) => setNewUserName(e.target.value);
-
-  const [newEmail, setNewEmail] = useState("");
-  const textNewEmail = (e: any) => setNewEmail(e.target.value);
+  const [newUsername, setNewUsername] = useState("");
 
   const [newPassword, setNewPassword] = useState("");
-  const textNewPassword = (e: any) => setNewPassword(e.target.value);
 
   const [newPasswordRepeat, setNewPasswordRepeat] = useState("");
-  const textNewPasswordRepeat = (e: any) =>
-    setNewPasswordRepeat(e.target.value);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setNewUsername("");
+    setNewPassword("");
+    setNewPasswordRepeat("");
+  };
 
   return (
-    <>
-      <form>
+    <div className="mt-5 w-50">
+      <form
+        onSubmit={handleSubmit}
+        className="border border-gray border-4 rounded-3 p-5"
+      >
         <div class="mb-3">
-          <label for="newUserName" class="form-label">
-            User Name
-          </label>
+          <label className="form-label">User Name</label>
           <input
             type="text"
-            onChange={textNewUserName}
-            value={newUserName}
+            value={newUsername}
+            onChange={(e) => setNewUsername(e.target.value)}
             className="form-control"
             placeholder="Username..."
           />
         </div>
         <div class="mb-3">
-          <label for="newUserEmail" class="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Password..."
-            onChange={textNewEmail}
-            value={newEmail}
-          />
-        </div>
-        <div class="mb-3">
-          <label for="newUserPassword" class="form-label">
-            Password
-          </label>
+          <label class="form-label">Password</label>
           <input
             type="password"
-            className="form-control"
-            placeholder="Password..."
-            onChange={textNewPassword}
             value={newPassword}
-          />
-        </div>
-        <div class="mb-3">
-          <label for="newUserPasswordRepeat" class="form-label">
-            Repeat password
-          </label>
-          <input
-            type="password"
+            onChange={(e) => setNewPassword(e.target.value)}
             className="form-control"
             placeholder="Password..."
-            onChange={textNewPasswordRepeat}
-            value={newPasswordRepeat}
           />
         </div>
         <div class="mb-3">
-          <label for="newUserImage" class="form-label">
-            User Image
-          </label>
-          <input type="file" class="form-control" id="newUserImage" />
+          <label class="form-label">Repeat password</label>
+          <input
+            type="password"
+            value={newPasswordRepeat}
+            onChange={(e) => setNewPasswordRepeat(e.target.value)}
+            className="form-control"
+            placeholder="Password..."
+          />
         </div>
-        <button type="submit" className="btn btn-block btn-primary w-100 mt-2">
-          Create user
-        </button>
+        <input
+          type="submit"
+          value="Create user"
+          className="btn btn-block btn-primary w-100 mt-2"
+        />
       </form>
-    </>
+    </div>
   );
 }
 
