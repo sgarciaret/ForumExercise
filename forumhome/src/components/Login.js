@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
+    const styleBar = {
+        backgroundColor: "#5D2B7E",
+        width: "100%",
+        height: "10vh"
+      };
+
   const [userName, setUserName] = useState("");
 
   const [password, setPassword] = useState("");
@@ -19,6 +25,10 @@ export default function Login() {
   }
 
   return (
+    <>
+    <div style={styleBar}>
+        <h1>Forum</h1>
+      </div>
     <div className="mt-5 w-50">
       <form
         className="border border-gray border-4 rounded-3 p-5"
@@ -57,5 +67,6 @@ export default function Login() {
         </div>
       </form>
     </div>
+    </>
   );
 }

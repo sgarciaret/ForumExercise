@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function NewUser() {
+  const styleBar = {
+    backgroundColor: "#5D2B7E",
+    width: "100%",
+    height: "10vh"
+  };
+
   const [userName, setuserName] = useState("");
 
   const [password, setpassword] = useState("");
@@ -52,6 +58,10 @@ function NewUser() {
   };
 
   return (
+    <>
+    <div style={styleBar}>
+        <h1>Forum</h1>
+      </div>
     <div className="mt-5 w-50">
       <form
         onSubmit={handleSubmit}
@@ -95,6 +105,7 @@ function NewUser() {
         />
       </form>
     </div>
+    </>
   );
 }
 
