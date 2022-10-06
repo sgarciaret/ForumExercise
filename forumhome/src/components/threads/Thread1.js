@@ -20,7 +20,8 @@ function Thread1(props){
         <Link to="/home" className="decolink"><h1>Forum</h1></Link>
       </div>
         <div className="newbtn">
-        <button type="button" className="btn btn-success btn-bg me-md-2">New post</button>
+            <Link to="/createPostT"><button type="button" className="btn btn-success btn-bg me-md-2">New post</button></Link>
+        
         </div>
       <div className="logoutbtn">
         <Link to="/">

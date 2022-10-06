@@ -8,6 +8,8 @@ import Thread1 from "./components/threads/Thread1";
 import Thread2 from "./components/threads/Thread2";
 import Thread3 from "./components/threads/Thread3";
 import Thread4 from "./components/threads/Thread4";
+import CreatePostT from "./components/CreatePostT";
+import CreatePostBody from "./components/CreatePostBody";
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
         <Route path="thread2" element={<Thread2 />} />
         <Route path="thread3" element={<Thread3 />} />
         <Route path="thread4" element={<Thread4 />} />
+        <Route path="createPostT" element={<CreatePostT />} />
+        <Route path="createPostBody" element={<CreatePostBody />} />
       </Routes>
       {/* <div style={styleFooter}>
                

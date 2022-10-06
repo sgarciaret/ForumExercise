@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ForumHome.css";
 
 function ForumHome() {
+<<<<<<< HEAD
     const styleBar = {
         backgroundColor: "#5D2B7E",
         width: "100%",
@@ -21,15 +22,34 @@ function ForumHome() {
         <Link to="/home" className="decolink"><h1>Forum</h1></Link>
       </div>
       <div class="logoutbtn">
+=======
+    const [threads, setThreads] = useState([]);
+    const styleLink = {
+      textDecoration : "none",
+      color: "black"
+    }
+
+    useEffect(() => {
+      fetch("http://localhost:8080/thread/getAll")
+        .then((res) => res.json())
+        .then((result) => {
+          setThreads(result);
+        });
+    }, []);
+
+  return (
+    <>
+      <div className="logoutbtn">
+>>>>>>> 27e76321f0a826d4967809f11d6d91ecd09d7f16
         <Link to="/">
-          <button class="btn btn-secondary btn-sm me-md-2">Log out</button>
+          <button className="btn btn-secondary btn-sm me-md-2">Log out</button>
         </Link>
       </div>
       <div
-        className="border border-gray border-4 rounded-3 p-5 mt-5"
-        class="threads"
+        className="border border-gray border-4 rounded-3 p-5 mt-5 threads"
       >
         <h2>Threads</h2>
+<<<<<<< HEAD
         <div
           className="border border-green border-3 rounded-3 p-4 mt-4 w-80"
         >
@@ -55,6 +75,19 @@ function ForumHome() {
           <Link to="/thread4" className="decolink"><h3>{thread4}</h3></Link>
           <p>Description Thread 4</p>
         </div>
+=======
+
+        {threads.map(thread=>(
+          <Link to="/" style={styleLink}>
+            <div
+              className="border border-green border-3 rounded-3 p-4 mt-4 w-80"
+            >
+              <h3>{thread.title}</h3>
+              <p>{thread.body}</p>
+            </div>
+          </Link>
+        ))}
+>>>>>>> 27e76321f0a826d4967809f11d6d91ecd09d7f16
       </div>
     </>
   );

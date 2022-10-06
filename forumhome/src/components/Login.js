@@ -13,16 +13,46 @@ export default function Login() {
   const [userName, setUserName] = useState("");
 
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setUserName("");
-    setPassword("");
-  };
+  const [users, setUsers] = useState([]);
 
   const aStyle = {
     textDecoration: "none"
   }
+
+  /*    
+    EJEMPLO CON REACT
+  useEffect(() => {
+    fetch("http://localhost:8080/user/getAll")
+      .then((res) => res.json())
+      .then((result) => {
+        setUsers(result);
+      });
+  }, []);
+  */
+  const u = { userName, password};
+  const existUser = false;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+        fetch("http://localhost:8080/user/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(u),
+        }).then(result => result.json()
+        ).then( 
+           
+            data => { 
+              if (data.userName !== null) {
+                window.location = "/home";
+              } else {
+                alert("Usuario no existe")
+              }
+
+            },
+            error => {
+              console.log(error)
+            })
+  };
 
   return (
     <>
@@ -62,7 +92,13 @@ export default function Login() {
 
         <div className="form-group mt-5 text-center">
           <label>Don't have any acount?&nbsp;</label>
-          <Link to="/signup" style={aStyle}>Register</Link>
+          <p>
+            <Link to="/signup" style={aStyle}>Register</Link>
+          </p>
+          <p>
+            <Link to="/home" style={aStyle}>Enter without register</Link>
+          </p>
+          
           {/* <a href="">   Register</a> */}
         </div>
       </form>

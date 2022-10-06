@@ -13,6 +13,7 @@ public class User {
     private int id;
 	@Column(nullable = false, unique = true, length = 20)
     private String userName;
+	@Column(nullable = false, length = 64)
     private String password;
     
     public User() {

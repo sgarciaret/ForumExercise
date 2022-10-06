@@ -15,6 +15,7 @@ function NewUser() {
   const [passwordRepeat, setpasswordRepeat] = useState("");
   const [users, setUsers] = useState([]);
 
+  /*EJEMPLO CON REACT
   useEffect(() => {
     fetch("http://localhost:8080/user/getAll")
       .then((res) => res.json())
@@ -54,6 +55,34 @@ function NewUser() {
       }
     } else {
       alert("La contraseña no coincide");
+    }
+  };*/
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const u = { userName, password};
+    let userExist = false
+
+    if (password !== passwordRepeat) {
+      alert("La contraseña no coincide");
+    } else {
+      fetch("http://localhost:8080/user/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(u),
+      }).then( result => result.json()
+      ).then( 
+        data => { 
+          if (data.userName !== null) {
+            window.location = "./";
+          } else {
+            alert("Usuario ya existe")
+          }
+          console.log(data.userName) 
+        },
+        error => {
+          console.log(error)
+        });
     }
   };
 
