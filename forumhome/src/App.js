@@ -5,9 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewUser from './components/NewUser';
 import Login from './components/Login';
 import ForumHome from "./components/ForumHome";
-import Thread from "./components/threads/Thread";
+// import Thread from "./components/threads/Thread";
 import CreatePostT from "./components/CreatePostT";
 import CreatePostBody from "./components/CreatePostBody";
+import ModeratorWindow from "./components/ModeratorWindow";
 
 function App() {
 
@@ -27,9 +28,10 @@ function App() {
         <Route index element={<Login />} />
         <Route path="signup" element={<NewUser />} />
         <Route path="home" element={<ForumHome onChangeThreadId={setThreadId}/>} />
-        <Route path="thread" element={<Thread threadId={threadId}/>} />
+        {/* <Route path="thread" element={<Thread threadId={threadId}/>} />
         <Route path="createPostT" element={<CreatePostT />} />
-        <Route path="createPostBody" element={<CreatePostBody />} />
+        <Route path="createPostBody" element={<CreatePostBody />} /> */}
+        <Route path="moderator" element={<ModeratorWindow />} />
       </Routes>
       {/* <div style={styleFooter}>
                
