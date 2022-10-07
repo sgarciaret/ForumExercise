@@ -31,6 +31,7 @@ function App() {
         <Route path="thread" element={<Thread threadId={threadId} onChangeThreadId={setThreadId}/>} />
         <Route path="createPostT" element={<CreatePostT threadId={threadId}/>} />
         <Route path="createPostBody" element={<CreatePostBody />} />
+        <Route path="moderator" element={<ModeratorWindow />} />
       </Routes>
       {/* <div style={styleFooter}>
                
