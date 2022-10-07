@@ -12,6 +12,7 @@ import CreatePostBody from "./components/CreatePostBody";
 function App() {
 
   const [threadId, setThreadId] = useState();
+  const [pathThread, setPathThread] = useState();
 
   const styleFooter = {
     backgroundColor: "#5D2B7E",
@@ -20,6 +21,7 @@ function App() {
     position: "fixed",
     bottom: "0"
 };
+
   return (
     <BrowserRouter className="App">
       <Routes>

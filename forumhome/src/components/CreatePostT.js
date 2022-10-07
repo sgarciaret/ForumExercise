@@ -83,7 +83,7 @@ function CreatePostT(props){
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),
         }).then(
-          window.location = "/home"
+          window.location = `/thread`
         )
       }
 
