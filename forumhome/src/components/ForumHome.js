@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ForumHome.css";
 
-function ForumHome( { onChangeThreadId }) {
+function ForumHome( { onChangeThreadId, onChangeThreadPath }) {
     const [threads, setThreads] = useState([]);
     const styleLink = {
       textDecoration : "none",
@@ -31,7 +31,10 @@ function ForumHome( { onChangeThreadId }) {
         <h2>Threads</h2>
 
         {threads.map(thread=>(
-          <Link to="/thread" style={styleLink} onClick={() => onChangeThreadId(thread.id)}>
+          <Link to="/thread" style={styleLink} onClick={() => {
+            onChangeThreadId(thread.id)
+            }
+          }>
             <div
               className="border border-green border-3 rounded-3 p-4 mt-4 w-80"
             >
