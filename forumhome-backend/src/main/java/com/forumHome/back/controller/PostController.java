@@ -1,5 +1,6 @@
 package com.forumHome.back.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import com.forumHome.back.service.ThreadService;
 public class PostController {
     @Autowired
     private PostService postService;
-    private ThreadService threadService;
 
     @PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
     public String add(@RequestBody Post post){

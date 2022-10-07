@@ -5,6 +5,7 @@ function CreatePostT(props){
     const [category, setCategory] = useState("Question");
     const [content, setContent] = useState("");
     const ref = useRef(null);
+    const ref2 = useRef(null);
   
     const handleChangeCat = (event) => {
       setCategory(event.target.value)
@@ -13,11 +14,6 @@ function CreatePostT(props){
     const handleChangeContent = (event) => {
       setContent(event.target.value)
     }
-
-    useEffect(() => {
-      const el2 = ref.current.style;
-      console.log(el2);
-    }, []);
 
     const styleBar = {
         backgroundColor: "#5D2B7E",
@@ -29,9 +25,18 @@ function CreatePostT(props){
         display: "none"
       }
 
+      let styleMostrar = {
+        display: "block"
+      }
+
       const navigate = useNavigate();
 
       const [title, setTitle] = useState("");
+
+      useEffect(() => {
+        const el2 = ref2.current;
+        console.log(el2);
+      }, []);
 
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -52,7 +57,8 @@ function CreatePostT(props){
               if (data.title !== null) {
                 alert("Titulo ya existe");
               } else {
-                                
+                ref.current.style.display = 'block'    
+                ref2.current.style.display = 'none'     
               }
 
             },
@@ -68,7 +74,8 @@ function CreatePostT(props){
           "title": title,
           "threadfk": props.threadId,
           "body": content,
-          "category": category
+          "category": category,
+          "visibility": true
         };
 
         fetch("http://localhost:8080/controller/add", {
@@ -76,13 +83,13 @@ function CreatePostT(props){
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),
         }).then(
-          alert("Todo correcto")
+          window.location = "/thread"
         )
       }
 
       return(
         <div>
-          <div id="divTitulo" ref={ref}>
+          <div id="divTitulo" ref={ref2} style={styleMostrar}>
             <div style={styleBar}>
               <Link to="/home" className="decolink"><h1>Forum</h1></Link>
             </div>
@@ -109,7 +116,7 @@ function CreatePostT(props){
             </form>
           </div>
           
-        <div style={styleOculto} id="divBody">
+        <div style={styleOculto} id="divBody" ref={ref}>
           <div style={styleBar}>
             <Link to="/home" className="decolink"><h1>Forum</h1></Link>
           </div>
