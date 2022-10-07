@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Post {
@@ -19,24 +23,38 @@ public class Post {
 	private String imageString;
 	private boolean visibility;
 	
+	@Transient @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Integer threadfk;
+	
 	@ManyToOne
     @JoinColumn(name="thread_id")
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	@JsonBackReference
 	private Thread thread;
 	
 	public Post() {
 		super();
 	}
 
-	public Post(int id, Thread threadId, String title, String body, String category, String imageString,
-			boolean visibility) {
+	public Integer getThreadfk() {
+		return threadfk;
+	}
+
+	public void setThreadfk(Integer threadfk) {
+		this.threadfk = threadfk;
+	}
+
+	public Post(int id, Thread thread, String title, String body, String category, String imageString,
+			boolean visibility, Integer threadfk) {
 		super();
 		this.id = id;
-		this.thread = threadId;
 		this.title = title;
 		this.body = body;
 		this.category = category;
 		this.imageString = imageString;
 		this.visibility = visibility;
+		this.threadfk = threadfk;
+		this.thread = thread;
 	}
 
 	public int getId() {
@@ -47,12 +65,12 @@ public class Post {
 		this.id = id;
 	}
 
-	public Thread getThreadId() {
+	public Thread getThread() {
 		return thread;
 	}
 
-	public void setThreadId(Thread threadId) {
-		this.thread = threadId;
+	public void setThread(Thread thread) {
+		this.thread = thread;
 	}
 
 	public String getTitle() {

@@ -28,10 +28,9 @@ function App() {
         <Route index element={<Login />} />
         <Route path="signup" element={<NewUser />} />
         <Route path="home" element={<ForumHome onChangeThreadId={setThreadId}/>} />
-        {/* <Route path="thread" element={<Thread threadId={threadId}/>} />
-        <Route path="createPostT" element={<CreatePostT />} />
-        <Route path="createPostBody" element={<CreatePostBody />} /> */}
-        <Route path="moderator" element={<ModeratorWindow />} />
+        <Route path="thread" element={<Thread threadId={threadId} onChangeThreadId={setThreadId}/>} />
+        <Route path="createPostT" element={<CreatePostT threadId={threadId}/>} />
+        <Route path="createPostBody" element={<CreatePostBody />} />
       </Routes>
       {/* <div style={styleFooter}>
                

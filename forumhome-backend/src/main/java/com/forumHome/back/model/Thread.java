@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Thread {
 	
@@ -18,6 +20,7 @@ public class Thread {
 	private String title;
 	private String body;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "thread")
 	private List<Post> post;
 	
@@ -40,8 +43,6 @@ public class Thread {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
 
 	public List<Post> getPost() {
 		return post;
