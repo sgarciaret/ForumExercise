@@ -41,11 +41,12 @@ public class ThreadController {
     	
     	for (Thread thread : threadService.getAllThreads()) {
 			if (thread.getId() == Integer.parseInt(id)) {
-				for (Post post : postList) {
+				for (Post post : thread.getPost()) {
 					postList.add(post);
 				}
 			}
 		}
+    	
         return postList;
     }
 }
