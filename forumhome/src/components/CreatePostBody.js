@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from '../images/logo.png';
 
 function CreatePostBody(){
     const styleBar = {
@@ -26,6 +27,7 @@ function CreatePostBody(){
     return (
         <>
         <div style={styleBar}>
+        <img src={logo} className="logo"/>
         <Link to="/home" className="decolink"><h1>Forum</h1></Link>
       </div>
       <form

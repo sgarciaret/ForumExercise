@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ForumHome.css";
+import logo from '../images/logo.png';
 
 function ForumHome( { onChangeThreadId, onChangeThreadPath }) {
+  const styleBar = {
+    backgroundColor: "#5D2B7E",
+    width: "100%",
+    height: "10vh",
+    color: "white"
+  };
+
     const [threads, setThreads] = useState([]);
     const styleLink = {
       textDecoration : "none",
@@ -20,6 +28,10 @@ function ForumHome( { onChangeThreadId, onChangeThreadPath }) {
 
   return (
     <>
+     <div style={styleBar}>
+        <img src={logo} className="logo"/>
+        <Link to="/home" className="decolink"><h1>Forum</h1></Link>
+      </div>
       <div className="logoutbtn">
         <Link to="/">
           <button className="btn btn-secondary btn-sm me-md-2">Log out</button>

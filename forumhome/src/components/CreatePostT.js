@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from '../images/logo.png';
 
 function CreatePostT(props){
     const [category, setCategory] = useState("Question");
@@ -91,6 +92,7 @@ function CreatePostT(props){
         <div>
           <div id="divTitulo" ref={ref2} style={styleMostrar}>
             <div style={styleBar}>
+            <img src={logo} className="logo"/>
               <Link to="/home" className="decolink"><h1>Forum</h1></Link>
             </div>
             <form

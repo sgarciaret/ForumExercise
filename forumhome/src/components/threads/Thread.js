@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './Thread.css'
+import './Thread.css';
+import logo from '../../images/logo.png';
 
 function Thread( props ){
   console.log(props)
@@ -35,6 +36,7 @@ function Thread( props ){
   return (
     <>
     <div style={styleBar}>
+        <img src={logo} className="logo"/>
         <Link to="/home" className="decolink"><h1>Forum</h1></Link>
       </div>
         <div className="newbtn">
