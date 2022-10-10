@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewUser from './components/NewUser';
 import Login from './components/Login';
 import ForumHome from "./components/ForumHome";
-// import Thread from "./components/threads/Thread";
+import Thread from "./components/threads/Thread";
 import CreatePostT from "./components/CreatePostT";
 import CreatePostBody from "./components/CreatePostBody";
 import ModeratorWindow from "./components/ModeratorWindow";
