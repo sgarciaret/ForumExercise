@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7290" started-at="2022-10-10T10:36:14 CEST" finished-at="2022-10-10T10:36:22 CEST">
+  <suite name="Default suite" duration-ms="11027" started-at="2022-10-10T16:10:35 CEST" finished-at="2022-10-10T16:10:46 CEST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7290" started-at="2022-10-10T10:36:14 CEST" finished-at="2022-10-10T10:36:22 CEST">
-      <class name="testFrontend.moderatorTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testFrontend.moderatorTest@f4168b8]" name="setUpClass" is-config="true" duration-ms="10" started-at="2022-10-10T10:36:14 CEST" finished-at="2022-10-10T10:36:14 CEST">
+    <test name="Default test" duration-ms="11027" started-at="2022-10-10T16:10:35 CEST" finished-at="2022-10-10T16:10:46 CEST">
+      <class name="testFrontend.NewPostBodyTest">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="setUpClass" is-config="true" duration-ms="11" started-at="2022-10-10T16:10:35 CEST" finished-at="2022-10-10T16:10:35 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="setUpMethod()[pri:0, instance:testFrontend.moderatorTest@f4168b8]" name="setUpMethod" is-config="true" duration-ms="6369" started-at="2022-10-10T10:36:14 CEST" finished-at="2022-10-10T10:36:21 CEST">
+        <test-method status="PASS" signature="setUpMethod()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="setUpMethod" is-config="true" duration-ms="6379" started-at="2022-10-10T16:10:35 CEST" finished-at="2022-10-10T16:10:41 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method status="PASS" signature="homeLinl()[pri:0, instance:testFrontend.moderatorTest@f4168b8]" name="homeLinl" duration-ms="116" started-at="2022-10-10T10:36:21 CEST" finished-at="2022-10-10T10:36:21 CEST">
+        <test-method status="PASS" signature="homeLink()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="homeLink" duration-ms="97" started-at="2022-10-10T16:10:41 CEST" finished-at="2022-10-10T16:10:41 CEST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- homeLinl -->
-        <test-method status="PASS" signature="tearDownMethod()[pri:0, instance:testFrontend.moderatorTest@f4168b8]" name="tearDownMethod" is-config="true" duration-ms="748" started-at="2022-10-10T10:36:21 CEST" finished-at="2022-10-10T10:36:22 CEST">
+        </test-method> <!-- homeLink -->
+        <test-method status="PASS" signature="tearDownMethod()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="tearDownMethod" is-config="true" duration-ms="700" started-at="2022-10-10T16:10:41 CEST" finished-at="2022-10-10T16:10:42 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testFrontend.moderatorTest@f4168b8]" name="tearDownClass" is-config="true" duration-ms="0" started-at="2022-10-10T10:36:22 CEST" finished-at="2022-10-10T10:36:22 CEST">
+        <test-method status="PASS" signature="setUpMethod()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="setUpMethod" is-config="true" duration-ms="2973" started-at="2022-10-10T16:10:42 CEST" finished-at="2022-10-10T16:10:45 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method status="PASS" signature="selectDefaul()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="selectDefaul" duration-ms="128" started-at="2022-10-10T16:10:45 CEST" finished-at="2022-10-10T16:10:45 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectDefaul -->
+        <test-method status="PASS" signature="tearDownMethod()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="tearDownMethod" is-config="true" duration-ms="690" started-at="2022-10-10T16:10:45 CEST" finished-at="2022-10-10T16:10:46 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testFrontend.NewPostBodyTest@f4168b8]" name="tearDownClass" is-config="true" duration-ms="1" started-at="2022-10-10T16:10:46 CEST" finished-at="2022-10-10T16:10:46 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- testFrontend.moderatorTest -->
+      </class> <!-- testFrontend.NewPostBodyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

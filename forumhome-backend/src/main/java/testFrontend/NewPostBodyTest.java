@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -11,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class moderatorTest {
+public class NewPostBodyTest {
 WebDriver driver;
 	
 	@BeforeClass
@@ -29,7 +30,7 @@ WebDriver driver;
 
         driver = new ChromeDriver();
         
-        driver.get("http://localhost:3000/moderator");
+        driver.get("http://localhost:3000/createPostBody");
         
 	}
 	
@@ -39,7 +40,7 @@ WebDriver driver;
 	}
 	
 	@Test
-	void homeLinl() {
+	void homeLink() {
 		WebElement homeLink = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/a[1]/h1[1]"));
 		homeLink.click();
 		
@@ -48,6 +49,17 @@ WebDriver driver;
 		String expected = "http://localhost:3000/home";
 		
 		Assert.assertEquals(homeURL, expected);
+	}
+	
+	@Test
+	void selectDefaul() {
+//		Select select = new Select(driver.findElement(By.xpath("/html[1]/body[1]/div[1]/form[1]/div[2]/select[1]")));
+		
+		WebElement sel = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/form[1]/div[2]/select[1]"));
+		
+		System.out.println(sel.get);
+		
+		
 	}
 
 }

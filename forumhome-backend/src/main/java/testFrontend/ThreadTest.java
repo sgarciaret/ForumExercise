@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class homeTest {
+public class ThreadTest {
 WebDriver driver;
 	
 	@BeforeClass
@@ -29,7 +29,7 @@ WebDriver driver;
 
         driver = new ChromeDriver();
         
-        driver.get("http://localhost:3000/home");
+        driver.get("http://localhost:3000/thread");
         
 	}
 	
@@ -37,10 +37,22 @@ WebDriver driver;
 	void tearDownMethod() {
 		driver.quit();
 	}
-
+	
+	@Test
+	void homeLinl() {
+		WebElement homeLink = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/a[1]/h1[1]"));
+		homeLink.click();
+		
+		String homeURL = driver.getCurrentUrl();
+		
+		String expected = "http://localhost:3000/home";
+		
+		Assert.assertEquals(homeURL, expected);
+	}
+	
 	@Test
 	void logoutButton() {
-		WebElement logoutLink = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/a[1]/button[1]"));
+		WebElement logoutLink = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/a[1]/button[1]"));
 		logoutLink.click();
 		
 		String loginURL = driver.getCurrentUrl();
@@ -49,4 +61,17 @@ WebDriver driver;
 		
 		Assert.assertEquals(loginURL, expected);
 	}
+	
+	@Test
+	void newPostButton() {
+		WebElement newPostLink = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/a[1]/button[1]"));
+		newPostLink.click();
+		
+		String newPostURL = driver.getCurrentUrl();
+		
+		String expected = "http://localhost:3000/createPostT";
+		
+		Assert.assertEquals(newPostURL, expected);
+	}
+
 }
